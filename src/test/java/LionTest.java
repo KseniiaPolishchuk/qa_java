@@ -1,6 +1,5 @@
 import com.example.Feline;
 import com.example.Lion;
-import com.example.Predator;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -23,10 +22,10 @@ public class LionTest {
 
     @Test
     public void getKittensTest() {
-        Predator mockPredator = mock(Predator.class);
-        lion = new Lion(mockPredator);
+        Feline mockFeline = mock(Feline.class);
+        lion = new Lion(mockFeline);
         lion.getKittens();
-        verify(mockPredator).getKittens();
+        verify(mockFeline).getKittens();
     }
     @Test
     public void getFoodTest() throws Exception {
@@ -40,6 +39,13 @@ public class LionTest {
         Feline feline = mock(Feline.class);
         Lion  lion = new Lion("Самец", feline);
         Assert.assertEquals(true, lion.doesHaveMane());
+
+    }
+    @Test
+    public void haveManeTest() throws Exception {
+        Feline feline = mock(Feline.class);
+        Lion  lion = new Lion("Самка", feline);
+        Assert.assertEquals(false, lion.doesHaveMane());
 
     }
 

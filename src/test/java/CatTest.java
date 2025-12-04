@@ -21,9 +21,10 @@ public class CatTest {
     public void getFoodTest() throws Exception {
         Feline mockFeline = mock(Feline.class);
         Cat cat = new Cat(mockFeline);
-        Mockito.when(mockFeline.eatMeat()).thenReturn(List.of("Рыба"));
+        List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
+        Mockito.when(mockFeline.eatMeat()).thenReturn(expectedFood);
         List<String> food = cat.getFood();
-        Assert.assertEquals(List.of("Рыба"), food);
+        Assert.assertEquals(expectedFood, food);
 
     }
 }
